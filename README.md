@@ -125,12 +125,12 @@ Step 05: Testing the Solution
 	• Click on Test (Ctrl+Shift+I) → Create new test event
  
 	• Enter an Event Name and create a new test event with empty JSON: {}
- 
-	• Click on Test again to run your function manually
+
+	• Once again, click on Test to run your function manually
  
 	• Check CloudWatch Logs to verify function execution
  
-	• Verify you receive the SNS notification email
+	• Verify that you receive the SNS notification email
 
 
 
