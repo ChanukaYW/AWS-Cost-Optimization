@@ -31,7 +31,7 @@ def lambda_handler(event, context):
     # Check each snapshot-volume pair
     for index in zipped_snaps_vols:
         try:
-            # Try to describe the volume associated with this snapshot
+            
             volume_state = ec2.describe_volumes(VolumeIds=[str(index[1])])["Volumes"]
         except:
             # If volume doesn't exist, add snapshot to isolated list
@@ -64,7 +64,7 @@ def lambda_handler(event, context):
     images = ec2.describe_images(Owners=['self'])['Images']
 
     # Remove snapshots that are used by AMIs from the isolated list
-    for snap in isolated_snapshots[:]:  # Use slice to create a copy for safe iteration
+    for snap in isolated_snapshots[:]:
         for img in images:
             mappings = img["BlockDeviceMappings"]
             for id in mappings:
@@ -78,7 +78,7 @@ def lambda_handler(event, context):
     orphaned_snapshots = []
     
     # Define the timestamp for 90 days ago
-    three_months_time = datetime.now(timezone.utc) - timedelta(days=90)  # Age threshold (90 days ago)
+    three_months_time = datetime.now(timezone.utc) - timedelta(days=90)
 
     # Check creation date of each isolated snapshot
     for snap in isolated_snapshots:
@@ -123,7 +123,7 @@ def lambda_handler(event, context):
                     else:
                         # Volume created from this snapshot is no longer in use
                         review_snapshots.append(item)
-                        print("hello")
+                        
 
     # Tag snapshots identified as safe to delete
     for snapshot in review_snapshots:
