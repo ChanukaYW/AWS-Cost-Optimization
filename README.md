@@ -18,7 +18,6 @@ This Lambda function identifies and tags unused EBS snapshots that are safe to d
 	
 The script implements a cleanup process that helps maintain your AWS environment by identifying orphaned snapshots that are likely unnecessary, saving on storage costs while ensuring important snapshots aren't deleted.
 
-Step-by-Step Guide:
 
 Step 01: Create the Lambda Function 
 
