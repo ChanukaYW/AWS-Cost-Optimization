@@ -8,6 +8,7 @@ This Lambda function identifies and tags unused EBS snapshots that are safe to d
 	• Identifies snapshots whose source volumes no longer exist or are unattached
  
 	• Excludes snapshots that are being used by AMIs (Amazon Machine Images)
+ 
 	• Filters for snapshots older than 90 days
  
 	• Verifies that no existing volumes were created from these snapshots
